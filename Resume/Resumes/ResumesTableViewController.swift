@@ -17,6 +17,8 @@ class ResumesTableViewController: UITableViewController {
         var coreDataHelper: CoreDataHelper = CoreDataHelper()
         
         templates = coreDataHelper.loadData()
+        
+        self.tableView.reloadData()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
