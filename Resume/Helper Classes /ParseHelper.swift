@@ -7,16 +7,12 @@
 //
 
 import UIKit
-import SwiftSoup
 
 
 class ParseHelper{
     typealias Item = (text: String, html: String, className: String)
     var items: [Item] = []
     
-    var elements: Elements!
-    
-    var document: Document = Document.init("")
     var htmlString: String!
     var strHTMLContent: String!
     

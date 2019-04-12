@@ -26,6 +26,7 @@ class ResumesTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
 
     // MARK: - Table view data source
 
@@ -96,10 +97,11 @@ class ResumesTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
-        
-        let dest = segue.destination as! ViewController
-        let aResume = templates[tableView.indexPathForSelectedRow!.row]
-        dest.aResume = aResume
+        if segue.identifier == "mainToHTML"{
+            let dest = segue.destination as! ViewController
+            let aResume = templates[tableView.indexPathForSelectedRow!.row]
+            dest.aResume = aResume
+        }
     }
     
 
