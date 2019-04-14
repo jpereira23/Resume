@@ -16,7 +16,7 @@ class ResumesTableViewController: UITableViewController {
         super.viewDidLoad()
         
         
-        coreDataHelper.resetCoreData()
+        //coreDataHelper.resetCoreData()
         
         templates = coreDataHelper.loadData()
         

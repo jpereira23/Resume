@@ -148,7 +148,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Iop-mr-Xed">
-                                <rect key="frame" x="0.0" y="88" width="375" height="535"/>
+                                <rect key="frame" x="0.0" y="111" width="375" height="458"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -201,19 +201,27 @@
                                     <outlet property="delegate" destination="O01-WQ-56N" id="RVl-yL-UtF"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mev-8b-j5x">
-                                <rect key="frame" x="164" y="767" width="87" height="46"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="shF-bA-XVf">
+                                <rect key="frame" x="25" y="577" width="62" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Continue"/>
                                 <connections>
-                                    <segue destination="Li8-SN-AOw" kind="show" id="7Xd-uA-sUz"/>
+                                    <segue destination="Li8-SN-AOw" kind="show" id="Iwe-Eq-hha"/>
                                 </connections>
                             </button>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="18K-hc-wnq">
+                                <rect key="frame" x="140" y="74" width="94" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="stepperPressed:" destination="O01-WQ-56N" eventType="valueChanged" id="zTX-is-c5d"/>
+                                </connections>
+                            </stepper>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="rgc-9s-eyZ"/>
                     </view>
                     <connections>
+                        <outlet property="stepper" destination="18K-hc-wnq" id="Ksi-an-QDx"/>
                         <outlet property="tableView" destination="Iop-mr-Xed" id="qsV-1B-1F3"/>
                     </connections>
                 </viewController>
@@ -230,7 +238,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OHi-bP-ULv">
-                                <rect key="frame" x="0.0" y="88" width="375" height="535"/>
+                                <rect key="frame" x="0.0" y="115" width="375" height="457"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -282,19 +290,28 @@
                                     <outlet property="delegate" destination="Li8-SN-AOw" id="QcM-eW-A7c"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wtb-bU-C33">
-                                <rect key="frame" x="164" y="756" width="87" height="46"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ybe-ti-dKg">
+                                <rect key="frame" x="156" y="580" width="62" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Continue"/>
                                 <connections>
-                                    <segue destination="nDS-bQ-lq9" kind="show" id="hN0-gO-Ldq"/>
+                                    <segue destination="nDS-bQ-lq9" kind="show" id="Wrf-jD-Bbv"/>
                                 </connections>
                             </button>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="RVA-vs-ARE">
+                                <rect key="frame" x="140" y="78" width="94" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="stepperPressed:" destination="Li8-SN-AOw" eventType="valueChanged" id="ifZ-zg-8lh"/>
+                                    <action selector="stepperPressed:" destination="O01-WQ-56N" eventType="valueChanged" id="zW6-cp-gor"/>
+                                </connections>
+                            </stepper>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="X8q-EU-CQX"/>
                     </view>
                     <connections>
+                        <outlet property="stepper" destination="RVA-vs-ARE" id="QW7-Xs-59s"/>
                         <outlet property="tableView" destination="OHi-bP-ULv" id="MsQ-3Z-8ak"/>
                     </connections>
                 </viewController>
@@ -354,7 +371,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="XfC-WJ-h3V">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="lJQ-8C-p7k">
+                        <barButtonItem key="rightBarButtonItem" id="lJQ-8C-p7k">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="mS0-sO-Hwn" userLabel="Add">
                                 <rect key="frame" x="267" y="7" width="92" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

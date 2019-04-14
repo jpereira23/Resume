@@ -15,11 +15,6 @@ class HonorInfoViewController: UIViewController {
         super.viewDidLoad()
         self.navigationItem.title = "Honor Info"
         
-        for i in 0...2{
-            NSLog(aResume.edus[i].school)
-            NSLog(aResume.edus[i].degree)
-        }
-        
         NSLog("Amount of works is \(aResume.works.count)")
         
         // Do any additional setup after loading the view.

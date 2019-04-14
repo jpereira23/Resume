@@ -26,12 +26,29 @@ class ViewController: UIViewController {
         parseHelper.setEmail(email: aResume.userInfo.email)
         parseHelper.setWebsite(website: aResume.userInfo.website)
         parseHelper.setNumber(number: aResume.userInfo.number)
-        parseHelper.setWorkExperienceOne(workExp: aResume.works[0].header, subOne: aResume.works[0].subHeader)
-        parseHelper.setWorkExperienceTwo(workExp: aResume.works[1].header, subTwo: aResume.works[1].subHeader)
-        parseHelper.setWorkExperienceThree(workExp: aResume.works[2].header, subThree: aResume.works[2].subHeader)
-        parseHelper.setEducationOne(college: aResume.edus[0].school, degree: aResume.edus[0].degree)
-        parseHelper.setEducationTwo(college: aResume.edus[1].school, degree: aResume.edus[1].degree)
-        parseHelper.setEducationThree(college: aResume.edus[2].school, degree: aResume.edus[2].degree)
+        
+        if(aResume.works.count == 1){
+            parseHelper.setWorkExperienceOne(workExp: aResume.works[0].header, subOne: aResume.works[0].subHeader)
+        } else if(aResume.works.count == 2){
+            parseHelper.setWorkExperienceOne(workExp: aResume.works[0].header, subOne: aResume.works[0].subHeader)
+            parseHelper.setWorkExperienceTwo(workExp: aResume.works[1].header, subTwo: aResume.works[1].subHeader)
+        } else if(aResume.works.count == 3){
+            parseHelper.setWorkExperienceOne(workExp: aResume.works[0].header, subOne: aResume.works[0].subHeader)
+            parseHelper.setWorkExperienceTwo(workExp: aResume.works[1].header, subTwo: aResume.works[1].subHeader)
+            parseHelper.setWorkExperienceThree(workExp: aResume.works[2].header, subThree: aResume.works[2].subHeader)
+        }
+        
+        if(aResume.edus.count == 1){
+            parseHelper.setEducationOne(college: aResume.edus[0].school, degree: aResume.edus[0].degree)
+        } else if(aResume.edus.count == 2){
+            parseHelper.setEducationOne(college: aResume.edus[0].school, degree: aResume.edus[0].degree)
+            parseHelper.setEducationTwo(college: aResume.edus[1].school, degree: aResume.edus[1].degree)
+        } else if(aResume.edus.count == 3){
+            parseHelper.setEducationOne(college: aResume.edus[0].school, degree: aResume.edus[0].degree)
+            parseHelper.setEducationTwo(college: aResume.edus[1].school, degree: aResume.edus[1].degree)
+            parseHelper.setEducationThree(college: aResume.edus[2].school, degree: aResume.edus[2].degree)
+        }
+        
         
         webView.loadHTMLString(parseHelper.strHTMLContent, baseURL: url!)
         //webView.loadRequest(request)

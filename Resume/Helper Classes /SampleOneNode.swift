@@ -66,6 +66,8 @@ class SampleOneNode{
     
     var combinedHTML: String!
     
+    var workCount: Int = 1
+    var eduCount: Int = 1
     
     
     init(){
@@ -89,18 +91,35 @@ class SampleOneNode{
         combinedHTML.append(personalInfo)
         combinedHTML.append(eduHeader1)
         combinedHTML.append(eduHeader2)
-        combinedHTML.append(eduHeader3)
-        combinedHTML.append(eduHeader4)
+        if(eduCount >= 2){
+            combinedHTML.append(eduHeader3)
+        }
+        if(eduCount >= 3){
+            combinedHTML.append(eduHeader4)
+        }
         combinedHTML.append(eduSubHeader1)
         combinedHTML.append(honorsHeader2)
-        combinedHTML.append(eduSubHeader2)
-        combinedHTML.append(eduSubHeader3)
+        if(eduCount >= 2){
+            combinedHTML.append(eduSubHeader2)
+        }
+        if(eduCount == 3){
+            combinedHTML.append(eduSubHeader3)
+        }
         combinedHTML.append(workExperienceSubHeader1)
-        combinedHTML.append(workExperienceSubHeader2)
-        combinedHTML.append(workExperienceSubHeader3)
+        if(workCount >= 2){
+            combinedHTML.append(workExperienceSubHeader2)
+        }
+        if(workCount == 3){
+            combinedHTML.append(workExperienceSubHeader3)
+        }
         combinedHTML.append(workExperienceHeader)
-        combinedHTML.append(workExperienceHeader1)
-        combinedHTML.append(workExperienceHeader2)
+        if(workCount >= 2){
+            combinedHTML.append(workExperienceHeader1)
+        }
+        
+        if(workCount == 3){
+            combinedHTML.append(workExperienceHeader2)
+        }
         combinedHTML.append(scriptPart)
         combinedHTML.append(bodyElementEnd)
         combinedHTML.append(closing)
@@ -138,6 +157,7 @@ class SampleOneNode{
     }
     
     func setWorkExperienceOne(expOne: String, subOne: String){
+        workCount = 1
         workExperienceHeader = workExperienceHeader.replacingOccurrences(of: "Product Designer / MeYou Health One", with: expOne)
         
         workExperienceSubHeader1 = workExperienceSubHeader1.replacingOccurrences(of: "Optimized crucial flows of Snap (SaaS platform), and lead the redesign of Daily Challenge (MYH&rsquo;s oldest web app) in UI/UX while closely working with engineers for functionality.", with: subOne)
@@ -146,6 +166,7 @@ class SampleOneNode{
     }
     
     func setWorkExperienceTwo(expTwo: String, subTwo: String){
+        workCount = 2
         workExperienceHeader1 = workExperienceHeader1.replacingOccurrences(of: "Product Designer / MeYou Health Two", with: expTwo)
         
         workExperienceSubHeader2 = workExperienceSubHeader1.replacingOccurrences(of: "Optimized crucial flows of Snap (SaaS platform), and lead the redesign of Daily Challenge (MYH&rsquo;s oldest web app) in UI/UX while closely working with engineers for functionality.", with: subTwo)
@@ -155,6 +176,7 @@ class SampleOneNode{
     
     func setWorkExperienceThree(expThree: String, subThree: String)
     {
+        workCount = 3
         workExperienceHeader2 = workExperienceHeader2.replacingOccurrences(of: "Product Designer / MeYou Health Three", with: expThree)
         
         workExperienceSubHeader3 = workExperienceSubHeader3.replacingOccurrences(of: "Optimized crucial flows of Snap (SaaS platform), and lead the redesign of Daily Challenge (MYH&rsquo;s oldest web app) in UI/UX while closely working with engineers for functionality.", with: subThree)
@@ -163,6 +185,7 @@ class SampleOneNode{
     }
     
     func setEducationOne(college: String, degree: String){
+        eduCount = 1
         eduHeader1 = eduHeader1.replacingOccurrences(of: "Studied Communication Studies", with: degree)
         eduSubHeader1 = eduSubHeader1.replacingOccurrences(of: "SF State University", with: college)
         
@@ -170,6 +193,7 @@ class SampleOneNode{
     }
     
     func setEducationTwo(college: String, degree: String){
+        eduCount = 2
         eduHeader3 = eduHeader3.replacingOccurrences(of: "Studied Communication Studies", with: degree)
         eduSubHeader2 = eduSubHeader2.replacingOccurrences(of: "SF State University", with: college)
         
@@ -177,6 +201,7 @@ class SampleOneNode{
     }
     
     func setEducationThree(college: String, degree: String){
+        eduCount = 3
         eduHeader4 = eduHeader4.replacingOccurrences(of: "Studied Communication Studies", with: degree)
         eduSubHeader3 = eduSubHeader3.replacingOccurrences(of: "SF State University", with: college)
         
