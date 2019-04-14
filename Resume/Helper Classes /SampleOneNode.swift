@@ -97,6 +97,7 @@ class SampleOneNode{
         combinedHTML.append(eduSubHeader3)
         combinedHTML.append(workExperienceSubHeader1)
         combinedHTML.append(workExperienceSubHeader2)
+        combinedHTML.append(workExperienceSubHeader3)
         combinedHTML.append(workExperienceHeader)
         combinedHTML.append(workExperienceHeader1)
         combinedHTML.append(workExperienceHeader2)
@@ -135,6 +136,53 @@ class SampleOneNode{
         
         runHTMLAppend()
     }
+    
+    func setWorkExperienceOne(expOne: String, subOne: String){
+        workExperienceHeader = workExperienceHeader.replacingOccurrences(of: "Product Designer / MeYou Health One", with: expOne)
+        
+        workExperienceSubHeader1 = workExperienceSubHeader1.replacingOccurrences(of: "Optimized crucial flows of Snap (SaaS platform), and lead the redesign of Daily Challenge (MYH&rsquo;s oldest web app) in UI/UX while closely working with engineers for functionality.", with: subOne)
+        
+        runHTMLAppend()
+    }
+    
+    func setWorkExperienceTwo(expTwo: String, subTwo: String){
+        workExperienceHeader1 = workExperienceHeader1.replacingOccurrences(of: "Product Designer / MeYou Health Two", with: expTwo)
+        
+        workExperienceSubHeader2 = workExperienceSubHeader1.replacingOccurrences(of: "Optimized crucial flows of Snap (SaaS platform), and lead the redesign of Daily Challenge (MYH&rsquo;s oldest web app) in UI/UX while closely working with engineers for functionality.", with: subTwo)
+        
+        runHTMLAppend()
+    }
+    
+    func setWorkExperienceThree(expThree: String, subThree: String)
+    {
+        workExperienceHeader2 = workExperienceHeader2.replacingOccurrences(of: "Product Designer / MeYou Health Three", with: expThree)
+        
+        workExperienceSubHeader3 = workExperienceSubHeader3.replacingOccurrences(of: "Optimized crucial flows of Snap (SaaS platform), and lead the redesign of Daily Challenge (MYH&rsquo;s oldest web app) in UI/UX while closely working with engineers for functionality.", with: subThree)
+        
+        runHTMLAppend()
+    }
+    
+    func setEducationOne(college: String, degree: String){
+        eduHeader1 = eduHeader1.replacingOccurrences(of: "Studied Communication Studies", with: degree)
+        eduSubHeader1 = eduSubHeader1.replacingOccurrences(of: "SF State University", with: college)
+        
+        runHTMLAppend()
+    }
+    
+    func setEducationTwo(college: String, degree: String){
+        eduHeader3 = eduHeader3.replacingOccurrences(of: "Studied Communication Studies", with: degree)
+        eduSubHeader2 = eduSubHeader2.replacingOccurrences(of: "SF State University", with: college)
+        
+        runHTMLAppend()
+    }
+    
+    func setEducationThree(college: String, degree: String){
+        eduHeader4 = eduHeader4.replacingOccurrences(of: "Studied Communication Studies", with: degree)
+        eduSubHeader3 = eduSubHeader3.replacingOccurrences(of: "SF State University", with: college)
+        
+        runHTMLAppend()
+    }
+    
 
 }
 

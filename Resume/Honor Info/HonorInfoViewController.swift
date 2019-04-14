@@ -20,6 +20,8 @@ class HonorInfoViewController: UIViewController {
             NSLog(aResume.edus[i].degree)
         }
         
+        NSLog("Amount of works is \(aResume.works.count)")
+        
         // Do any additional setup after loading the view.
     }
     

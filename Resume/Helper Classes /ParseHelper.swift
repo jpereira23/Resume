@@ -64,4 +64,40 @@ class ParseHelper{
         
         strHTMLContent = sampleNode.combinedHTML
     }
+    
+    func setWorkExperienceOne(workExp: String, subOne: String){
+        sampleNode.setWorkExperienceOne(expOne: workExp, subOne: subOne)
+        
+        strHTMLContent = sampleNode.combinedHTML
+    }
+    
+    func setWorkExperienceTwo(workExp: String, subTwo: String){
+        sampleNode.setWorkExperienceTwo(expTwo: workExp, subTwo: subTwo)
+        
+        strHTMLContent = sampleNode.combinedHTML
+    }
+    
+    func setWorkExperienceThree(workExp: String, subThree: String){
+        sampleNode.setWorkExperienceThree(expThree: workExp, subThree: subThree)
+        
+        strHTMLContent = sampleNode.combinedHTML
+    }
+    
+    func setEducationOne(college: String, degree: String){
+        sampleNode.setEducationOne(college: college, degree: degree)
+        
+        strHTMLContent = sampleNode.combinedHTML
+    }
+    
+    func setEducationTwo(college: String, degree: String){
+        sampleNode.setEducationTwo(college: college, degree: degree)
+        
+        strHTMLContent = sampleNode.combinedHTML
+    }
+    
+    func setEducationThree(college: String, degree: String){
+        sampleNode.setEducationThree(college: college, degree: degree)
+        
+        strHTMLContent = sampleNode.combinedHTML
+    }
 }

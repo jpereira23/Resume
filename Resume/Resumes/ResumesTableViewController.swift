@@ -11,10 +11,12 @@ import UIKit
 class ResumesTableViewController: UITableViewController {
 
     var templates: [Template] = []
+    var coreDataHelper: CoreDataHelper = CoreDataHelper()
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var coreDataHelper: CoreDataHelper = CoreDataHelper()
+        
+        coreDataHelper.resetCoreData()
         
         templates = coreDataHelper.loadData()
         
@@ -25,6 +27,12 @@ class ResumesTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        templates = coreDataHelper.loadData()
+        
+        self.tableView.reloadData()
     }
     
 
