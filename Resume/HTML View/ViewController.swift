@@ -7,11 +7,19 @@
 //
 
 import UIKit
+import WebKit
+
+class CustomPrintPageRenderer: UIPrintPageRenderer{
+    let A4PageWidth: CGFloat = 595.2
+    let A4PageHeight: CGFloat = 841.8
+}
+
 
 class ViewController: UIViewController {
-    @IBOutlet weak var webView: UIWebView!
     
+    @IBOutlet weak var webView: WKWebView!
     var aResume: Template! = Template()
+    var pdfFileName: String = ""
     let parseHelper: ParseHelper = ParseHelper()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,11 +58,69 @@ class ViewController: UIViewController {
         }
         
         
+        
         webView.loadHTMLString(parseHelper.strHTMLContent, baseURL: url!)
         //webView.loadRequest(request)
         // Do any additional setup after loading the view, typically from a nib.
     }
+    
 
-
+    @IBAction func convertToPDF(_ sender: Any) {
+        var contentSize: CGSize = webView.scrollView.contentSize
+        var viewSize: CGSize = webView.bounds.size
+        
+        let rw: Float = Float(viewSize.width / contentSize.width)
+        
+        webView.scrollView.minimumZoomScale = CGFloat(rw)
+        webView.scrollView.maximumZoomScale = CGFloat(rw)
+        webView.scrollView.zoomScale = CGFloat(rw)
+        
+        webView.takeSnapshot(with: nil) {image, error in
+            if let image = image{
+                let activityViewController: UIActivityViewController = UIActivityViewController(activityItems: [self.createPDF(image: image)], applicationActivities: nil)
+                activityViewController.popoverPresentationController?.sourceView=self.view
+                self.present(activityViewController, animated: true, completion: nil)
+            }
+        }
+        /*
+        let printPageRenderer = CustomPrintPageRenderer()
+        
+        let printFormatter = UIMarkupTextPrintFormatter(markupText: parseHelper.strHTMLContent)
+        
+        printPageRenderer.addPrintFormatter(printFormatter, startingAtPageAt: 0)
+        
+        let pdfData = drawPDFUsingPrintPageRenderer(printPageRenderer: printPageRenderer)
+        
+        //var docURL = (FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)).last as? NSURL
+        
+        //pdfFileName = "aPdf.pdf"
+        
+        //docURL = docURL?.appendingPathComponent(pdfFileName) as! NSURL
+        
+        //pdfData?.write(to: docURL as! URL, atomically: true)
+        
+        let activityViewController: UIActivityViewController = UIActivityViewController(activityItems: [pdfData!], applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView=self.view
+        present(activityViewController, animated: true, completion: nil)
+ 
+        */
+        
+    }
+    
+    func createPDF(image: UIImage) -> NSData{
+        let pdfData = NSMutableData()
+        let pdfConsumer = CGDataConsumer(data: pdfData as CFMutableData)!
+        
+        var mediaBox = CGRect.init(x: 0, y: 0, width: webView.scrollView.contentSize.width, height: webView.scrollView.contentSize.height)
+        
+        let pdfContext = CGContext(consumer: pdfConsumer, mediaBox: &mediaBox, nil)!
+        
+        pdfContext.beginPage(mediaBox: &mediaBox)
+        pdfContext.draw(image.cgImage!, in: mediaBox)
+        pdfContext.endPage()
+        
+        return pdfData
+    }
+    
 }
 

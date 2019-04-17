@@ -13,7 +13,7 @@ class SampleOneNode{
     
     var cssLink: String = "<link href=\"./css/simplesample.css\" rel=\"stylesheet\" type=\"text/css\">"
     
-    var headerBack: String = "<meta content=\"Launchpad by Anima\" name=\"author\"></head>\""
+    var headerBack: String = "<meta content=\"Launchpad by Anima\" name=\"author\"></head>"
     
     var bodyElementStart: String = "<body style=\"margin: 0;background: rgba(255, 255, 255, 1.0);\"><input id=\"anPageName\" name=\"page\" type=\"hidden\" value=\"simplesample\">"
     var simpleSampleDiv: String = "<div class=\"simplesample\" style=\"-webkit-text-size-adjust:none;width:100%;min-width:595px;height:100vh;min-height:842px;position:relative;overflow:hidden;margin:0px;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;background-color:rgba(255, 255, 255, 1.0);\">"

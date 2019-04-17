@@ -14,14 +14,10 @@ class HonorInfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Honor Info"
-        
-        NSLog("Amount of works is \(aResume.works.count)")
-        
         // Do any additional setup after loading the view.
     }
     
     @IBAction func saveInfo(_ sender: Any) {
-        NSLog("Save Info")
         
         var coreHelper = CoreDataHelper()
         
