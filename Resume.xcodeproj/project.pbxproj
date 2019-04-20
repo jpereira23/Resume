@@ -21,6 +21,7 @@
 		20B2C3642259A47200EEF11E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20B2C3622259A47200EEF11E /* LaunchScreen.storyboard */; };
 		20B2C36F2259A47300EEF11E /* ResumeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B2C36E2259A47300EEF11E /* ResumeTests.swift */; };
 		20B2C37A2259A47300EEF11E /* ResumeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B2C3792259A47300EEF11E /* ResumeUITests.swift */; };
+		20B6128F226A9FD400697871 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20B6128E226A9FD400697871 /* WebKit.framework */; };
 		20BB9637226079D800463972 /* SectionInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BB9636226079D800463972 /* SectionInfoViewController.swift */; };
 		20BB963A22607C1200463972 /* SectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BB963822607C1200463972 /* SectionTableViewCell.swift */; };
 		20D677272260BE6600F52388 /* Resume.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D677262260BE6600F52388 /* Resume.swift */; };
@@ -73,6 +74,7 @@
 		20B2C3752259A47300EEF11E /* ResumeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ResumeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		20B2C3792259A47300EEF11E /* ResumeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumeUITests.swift; sourceTree = "<group>"; };
 		20B2C37B2259A47300EEF11E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		20B6128E226A9FD400697871 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		20BB9636226079D800463972 /* SectionInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionInfoViewController.swift; sourceTree = "<group>"; };
 		20BB963822607C1200463972 /* SectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTableViewCell.swift; sourceTree = "<group>"; };
 		20D677262260BE6600F52388 /* Resume.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resume.swift; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20B6128F226A9FD400697871 /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,6 +246,7 @@
 		CC828E7516DD5B6D2FC10955 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				20B6128E226A9FD400697871 /* WebKit.framework */,
 				0D5AF854A61EAAE3F3007CB0 /* Pods_Resume.framework */,
 				71BA1E3BD1B5CCBBFEB117D8 /* Pods_ResumeTests.framework */,
 				525EB6B1BEFA270E54EF1742 /* Pods_ResumeUITests.framework */,
