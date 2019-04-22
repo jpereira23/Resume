@@ -50,7 +50,7 @@ class SectionInfoViewController: UIViewController {
 
 }
 
-extension SectionInfoViewController: UITableViewDataSource, UITableViewDelegate {
+extension SectionInfoViewController: UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return Int(stepper!.value)
     }
@@ -65,5 +65,10 @@ extension SectionInfoViewController: UITableViewDataSource, UITableViewDelegate 
     }
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
     }
 }

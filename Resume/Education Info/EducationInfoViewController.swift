@@ -52,7 +52,7 @@ class EducationInfoViewController: UIViewController {
 
 }
 
-extension EducationInfoViewController: UITableViewDelegate, UITableViewDataSource {
+extension EducationInfoViewController: UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return Int(stepper!.value)
     }
@@ -69,5 +69,10 @@ extension EducationInfoViewController: UITableViewDelegate, UITableViewDataSourc
     }
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
     }
 }
