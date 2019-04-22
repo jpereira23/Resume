@@ -66,8 +66,8 @@ class SampleOneNode{
     
     var combinedHTML: String!
     
-    var workCount: Int = 1
-    var eduCount: Int = 1
+    var workCount: Int = 0
+    var eduCount: Int = 0
     
     
     init(){

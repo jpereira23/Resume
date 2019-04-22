@@ -236,7 +236,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Continue"/>
                                 <connections>
-                                    <segue destination="Li8-SN-AOw" kind="show" id="Iwe-Eq-hha"/>
+                                    <segue destination="Li8-SN-AOw" kind="show" identifier="sectionToEducation" id="Iwe-Eq-hha"/>
                                 </connections>
                             </button>
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="18K-hc-wnq">
@@ -246,6 +246,14 @@
                                     <action selector="stepperPressed:" destination="O01-WQ-56N" eventType="valueChanged" id="zTX-is-c5d"/>
                                 </connections>
                             </stepper>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ocU-l9-fW4">
+                                <rect key="frame" x="309" y="577" width="54" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Preview"/>
+                                <connections>
+                                    <segue destination="Z5h-fp-9Or" kind="presentation" identifier="sectionToPreview" id="TGb-zo-hIj"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="rgc-9s-eyZ"/>
@@ -327,11 +335,11 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ybe-ti-dKg">
-                                <rect key="frame" x="156" y="580" width="62" height="30"/>
+                                <rect key="frame" x="16" y="580" width="62" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Continue"/>
                                 <connections>
-                                    <segue destination="nDS-bQ-lq9" kind="show" id="Wrf-jD-Bbv"/>
+                                    <segue destination="nDS-bQ-lq9" kind="show" identifier="educationToHonor" id="Wrf-jD-Bbv"/>
                                 </connections>
                             </button>
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="RVA-vs-ARE">
@@ -342,6 +350,14 @@
                                     <action selector="stepperPressed:" destination="O01-WQ-56N" eventType="valueChanged" id="zW6-cp-gor"/>
                                 </connections>
                             </stepper>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2IN-MA-Ij5">
+                                <rect key="frame" x="305" y="580" width="54" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Preview"/>
+                                <connections>
+                                    <segue destination="Z5h-fp-9Or" kind="presentation" identifier="educationToPreview" id="p34-HG-sFJ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="X8q-EU-CQX"/>
@@ -441,20 +457,45 @@
             </objects>
             <point key="canvasLocation" x="271.01449275362319" y="124.55357142857142"/>
         </scene>
-        <!--View Controller-->
+        <!--Preview View Controller-->
         <scene sceneID="uCp-ic-RIy">
             <objects>
-                <viewController id="Z5h-fp-9Or" sceneMemberID="viewController">
+                <viewController id="Z5h-fp-9Or" customClass="PreviewViewController" customModule="Resume" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dNG-Ax-jmz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Uh-Cp-O7h">
+                                <rect key="frame" x="0.0" y="90" width="375" height="577"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lHy-0K-3hQ">
+                                <rect key="frame" x="126" y="52" width="122" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Back to some shit"/>
+                                <connections>
+                                    <action selector="popBack:" destination="Z5h-fp-9Or" eventType="touchUpInside" id="MYH-x6-Kmq"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="vUk-bX-hcY"/>
                     </view>
+                    <connections>
+                        <outlet property="webView" destination="6Uh-Cp-O7h" id="FEQ-pJ-83D"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dE3-sD-lYp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2102" y="847"/>
+            <point key="canvasLocation" x="3526" y="1015"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="p34-HG-sFJ"/>
+    </inferredMetricsTieBreakers>
 </document>

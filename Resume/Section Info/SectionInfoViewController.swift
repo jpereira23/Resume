@@ -34,17 +34,36 @@ class SectionInfoViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
-        let anCount: Int = Int(stepper!.value)
-        for i in 1...anCount{
-            let aCell: SectionTableViewCell = tableView.cellForRow(at: IndexPath.init(row: (i - 1), section: 0)) as! SectionTableViewCell
-            let aWork: WorkEx = WorkEx()
-            aWork.header = aCell.headerTextField.text!
-            aWork.subHeader = aCell.SubheaderTextView.text!
-            aResume.works.append(aWork)
+        if segue.identifier == "sectionToEducation"{
+            NSLog("Here is education stuff")
+            let anCount: Int = Int(stepper!.value)
+            for i in 1...anCount{
+                let aCell: SectionTableViewCell = tableView.cellForRow(at: IndexPath.init(row: (i - 1), section: 0)) as! SectionTableViewCell
+                let aWork: WorkEx = WorkEx()
+                aWork.header = aCell.headerTextField.text!
+                aWork.subHeader = aCell.SubheaderTextView.text!
+                aResume.works.append(aWork)
+            }
+            let dest = segue.destination as! EducationInfoViewController
+            
+            dest.aResume = aResume
         }
-        let dest = segue.destination as! EducationInfoViewController
         
-        dest.aResume = aResume
+        if segue.identifier == "sectionToPreview"{
+            
+            aResume.works = []
+            let anCount: Int = Int(stepper!.value)
+            for i in 1...anCount{
+                let aCell: SectionTableViewCell = tableView.cellForRow(at: IndexPath.init(row: (i - 1), section: 0)) as! SectionTableViewCell
+                let aWork: WorkEx = WorkEx()
+                aWork.header = aCell.headerTextField.text!
+                aWork.subHeader = aCell.SubheaderTextView.text!
+                aResume.works.append(aWork)
+            }
+            let dest = segue.destination as! PreviewViewController
+            
+            dest.aResume = aResume
+        }
     }
     
 

@@ -33,6 +33,7 @@
 		20D677342260C26300F52388 /* EducationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D677332260C26300F52388 /* EducationTableViewCell.swift */; };
 		20D677372260C47E00F52388 /* HonorInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D677362260C47E00F52388 /* HonorInfoViewController.swift */; };
 		20D6773A2260D2FE00F52388 /* ResumesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D677392260D2FE00F52388 /* ResumesTableViewController.swift */; };
+		20FA0CC4226E287300112D86 /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FA0CC3226E287300112D86 /* PreviewViewController.swift */; };
 		D5A55D6D1700B8C32503F788 /* Pods_ResumeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 525EB6B1BEFA270E54EF1742 /* Pods_ResumeUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -86,6 +87,7 @@
 		20D677332260C26300F52388 /* EducationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EducationTableViewCell.swift; sourceTree = "<group>"; };
 		20D677362260C47E00F52388 /* HonorInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HonorInfoViewController.swift; sourceTree = "<group>"; };
 		20D677392260D2FE00F52388 /* ResumesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumesTableViewController.swift; sourceTree = "<group>"; };
+		20FA0CC3226E287300112D86 /* PreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
 		525EB6B1BEFA270E54EF1742 /* Pods_ResumeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ResumeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		71BA1E3BD1B5CCBBFEB117D8 /* Pods_ResumeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ResumeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -163,6 +165,7 @@
 				20D677352260C46000F52388 /* Honor Info */,
 				2031E1902259AEE8005030B0 /* sample_one.html */,
 				2031E1912259AEE8005030B0 /* sample_two.html */,
+				20FA0CC2226E285900112D86 /* Preview */,
 				20BB9635226079B800463972 /* Section Info */,
 				207CF075225F2AB800E98A3C /* HTML View */,
 				20D677302260C23200F52388 /* Education Info */,
@@ -241,6 +244,14 @@
 				20D677392260D2FE00F52388 /* ResumesTableViewController.swift */,
 			);
 			path = Resumes;
+			sourceTree = "<group>";
+		};
+		20FA0CC2226E285900112D86 /* Preview */ = {
+			isa = PBXGroup;
+			children = (
+				20FA0CC3226E287300112D86 /* PreviewViewController.swift */,
+			);
+			path = Preview;
 			sourceTree = "<group>";
 		};
 		CC828E7516DD5B6D2FC10955 /* Frameworks */ = {
@@ -445,6 +456,7 @@
 				20D677292260BE8A00F52388 /* UserInfo.swift in Sources */,
 				20D6773A2260D2FE00F52388 /* ResumesTableViewController.swift in Sources */,
 				20BB9637226079D800463972 /* SectionInfoViewController.swift in Sources */,
+				20FA0CC4226E287300112D86 /* PreviewViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

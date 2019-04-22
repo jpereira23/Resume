@@ -33,19 +33,39 @@ class EducationInfoViewController: UIViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        let aCount: Int = Int(stepper!.value)
-        for i in 1...aCount{
-            let cell: EducationTableViewCell = tableView.cellForRow(at: IndexPath(row: (i - 1), section: 0)) as! EducationTableViewCell
+        if segue.identifier == "educationToHonor"{
+            let aCount: Int = Int(stepper!.value)
+            for i in 1...aCount{
+                let cell: EducationTableViewCell = tableView.cellForRow(at: IndexPath(row: (i - 1), section: 0)) as! EducationTableViewCell
+                
+                let edu: Edu = Edu()
+                edu.school = cell.collegeTextField.text!
+                edu.degree = cell.degreeTextField.text!
+                aResume.edus.append(edu)
+            }
             
-            let edu: Edu = Edu()
-            edu.school = cell.collegeTextField.text!
-            edu.degree = cell.degreeTextField.text!
-            aResume.edus.append(edu)
+            let dest = segue.destination as! HonorInfoViewController
+            
+            dest.aResume = aResume
         }
         
-        let dest = segue.destination as! HonorInfoViewController
-        
-        dest.aResume = aResume
+        if segue.identifier == "educationToPreview"{
+            
+            aResume.edus = []
+            let aCount: Int = Int(stepper!.value)
+            for i in 1...aCount{
+                let cell: EducationTableViewCell = tableView.cellForRow(at: IndexPath(row: (i - 1), section: 0)) as! EducationTableViewCell
+                
+                let edu: Edu = Edu()
+                edu.school = cell.collegeTextField.text!
+                edu.degree = cell.degreeTextField.text!
+                aResume.edus.append(edu)
+            }
+            
+            let dest = segue.destination as! PreviewViewController
+            
+            dest.aResume = aResume
+        }
         
         
     }
