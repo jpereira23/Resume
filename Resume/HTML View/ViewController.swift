@@ -64,62 +64,42 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
     
-
     @IBAction func convertToPDF(_ sender: Any) {
-        var contentSize: CGSize = webView.scrollView.contentSize
-        var viewSize: CGSize = webView.bounds.size
-        
-        let rw: Float = Float(viewSize.width / contentSize.width)
-        
-        webView.scrollView.minimumZoomScale = CGFloat(rw)
-        webView.scrollView.maximumZoomScale = CGFloat(rw)
-        webView.scrollView.zoomScale = CGFloat(rw)
-        
-        webView.takeSnapshot(with: nil) {image, error in
-            if let image = image{
-                let activityViewController: UIActivityViewController = UIActivityViewController(activityItems: [self.createPDF(image: image)], applicationActivities: nil)
-                activityViewController.popoverPresentationController?.sourceView=self.view
-                self.present(activityViewController, animated: true, completion: nil)
-            }
-        }
-        /*
-        let printPageRenderer = CustomPrintPageRenderer()
-        
-        let printFormatter = UIMarkupTextPrintFormatter(markupText: parseHelper.strHTMLContent)
-        
-        printPageRenderer.addPrintFormatter(printFormatter, startingAtPageAt: 0)
-        
-        let pdfData = drawPDFUsingPrintPageRenderer(printPageRenderer: printPageRenderer)
-        
-        //var docURL = (FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)).last as? NSURL
-        
-        //pdfFileName = "aPdf.pdf"
-        
-        //docURL = docURL?.appendingPathComponent(pdfFileName) as! NSURL
-        
-        //pdfData?.write(to: docURL as! URL, atomically: true)
-        
-        let activityViewController: UIActivityViewController = UIActivityViewController(activityItems: [pdfData!], applicationActivities: nil)
-        activityViewController.popoverPresentationController?.sourceView=self.view
-        present(activityViewController, animated: true, completion: nil)
- 
-        */
-        
+        NSLog(parseHelper.strHTMLContent)
+        createPDF(html: parseHelper.strHTMLContent)
     }
     
-    func createPDF(image: UIImage) -> NSData{
+    func createPDF(html: String){
+        
+        let render = UIPrintPageRenderer()
+        
+        render.addPrintFormatter(webView.viewPrintFormatter(), startingAtPageAt: 0)
+        
+        
+        let page = CGRect(x: 0, y: 0, width: 595.2, height: 841.8)
+        render.setValue(page, forKey: "paperRect")
+        render.setValue(page, forKey: "printableRect")
+        
+        NSLog("number of pages \(render.numberOfPages)")
+        
+        
         let pdfData = NSMutableData()
-        let pdfConsumer = CGDataConsumer(data: pdfData as CFMutableData)!
+        UIGraphicsBeginPDFContextToData(pdfData, .zero, nil)
         
-        var mediaBox = CGRect.init(x: 0, y: 0, width: webView.scrollView.contentSize.width, height: webView.scrollView.contentSize.height)
+        for i in 0..<render.numberOfPages{
+            NSLog("Hello world")
+            UIGraphicsBeginPDFPage();
+            render.drawPage(at: i, in: UIGraphicsGetPDFContextBounds())
+        }
         
-        let pdfContext = CGContext(consumer: pdfConsumer, mediaBox: &mediaBox, nil)!
+        UIGraphicsEndPDFContext();
         
-        pdfContext.beginPage(mediaBox: &mediaBox)
-        pdfContext.draw(image.cgImage!, in: mediaBox)
-        pdfContext.endPage()
+        guard let outputURL = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false).appendingPathComponent("output").appendingPathExtension("pdf") else {
+            fatalError("Destination URL not created")
+        }
         
-        return pdfData
+        guard nil != (try? pdfData.write(to: outputURL, options: .atomic))
+            else { fatalError("Error writing PDF data to file.") }
     }
     
 }
